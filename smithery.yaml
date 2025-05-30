@@ -1,0 +1,44 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config)=>({command:'python',args:['-u','src/redshift_mcp_server/server.py'],env:{RS_HOST:config.rsHost,RS_PORT:String(config.rsPort),RS_USER:config.rsUser,RS_PASSWORD:config.rsPassword,RS_DATABASE:config.rsDatabase,RS_SCHEMA:config.rsSchema}})
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - rsHost
+      - rsUser
+      - rsPassword
+      - rsDatabase
+    properties:
+      rsHost:
+        type: string
+        description: Redshift host
+      rsPort:
+        type: number
+        default: 5439
+        description: Redshift port
+      rsUser:
+        type: string
+        description: Redshift username
+      rsPassword:
+        type: string
+        description: Redshift password
+      rsDatabase:
+        type: string
+        description: Redshift database
+      rsSchema:
+        type: string
+        default: public
+        description: Redshift schema
+  exampleConfig:
+    rsHost: example.redshift.amazonaws.com
+    rsPort: 5439
+    rsUser: awsuser
+    rsPassword: password123
+    rsDatabase: dev
+    rsSchema: public
