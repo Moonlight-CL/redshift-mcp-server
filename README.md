@@ -1,5 +1,7 @@
 # Redshift MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@Moonlight-CL/redshift-mcp-server)](https://smithery.ai/server/@Moonlight-CL/redshift-mcp-server)
+
 A Model Context Protocol (MCP) server for Amazon Redshift that enables AI assistants to interact with Redshift databases.
 
 ## Introduction
@@ -14,6 +16,14 @@ Redshift MCP Server is a Python-based implementation of the [Model Context Proto
 - Get execution plans for SQL queries
 
 ## Installation
+
+### Installing via Smithery
+
+To install Redshift MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Moonlight-CL/redshift-mcp-server):
+
+```bash
+npx -y @smithery/cli install @Moonlight-CL/redshift-mcp-server --client claude
+```
 
 ### Prerequisites
 
